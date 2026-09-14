@@ -24,6 +24,7 @@ const team = [
   bio: 'Designs and builds modern, fast websites that look premium and convert visitors into clients.',
   initials: 'DS',
   color: '#1E40AF',
+  linkedin: 'https://www.linkedin.com/in/deeksha-shetty07',
 },
 {
   name: 'Sheron',
@@ -47,7 +48,7 @@ export default function TeamPage() {
           <span className="accent-line" />
           <h1 className="font-display text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
             The People Behind <br />
-            <span className="gradient-text">VYOM Studio</span>
+            <span className="gradient-text-light">VYOM Studio</span>
           </h1>
           <p className="text-gray-600 text-xl max-w-xl leading-relaxed">
             A small, focused team of creators, strategists, and operators — united by a passion for building great things.
@@ -75,7 +76,7 @@ export default function TeamPage() {
 
               <div className="lg:col-span-2">
                 <p className="text-gray-600 leading-relaxed mb-6">{team[0].bio}</p>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 relative z-10">
                   <a href="https://www.linkedin.com/in/vyom-studio-8646333b0?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer"
                     className="text-gray-600 hover:text-[#0084FF] transition-colors">
                     <Linkedin size={18} />
@@ -91,7 +92,7 @@ export default function TeamPage() {
 
           {/* Rest of Team */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {team.slice(1).map(({ name, role, bio, initials, color }, i) => (
+            {team.slice(1).map(({ name, role, bio, initials, color, linkedin }, i) => (
               <div
                 key={name}
                 className={`animate-on-scroll delay-${(i + 1) * 100} service-card p-6 group flex flex-col`}
@@ -106,7 +107,15 @@ export default function TeamPage() {
 
                 <h3 className="font-display text-lg font-bold text-gray-900 mb-0.5">{name}</h3>
                 <span className="text-[#0084FF] text-xs tracking-widest uppercase mb-4">{role}</span>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1">{bio}</p>
+                <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-4">{bio}</p>
+                {linkedin && (
+                  <div className="mt-auto flex items-center relative z-10">
+                    <a href={linkedin} target="_blank" rel="noopener noreferrer"
+                       className="text-gray-400 hover:text-[#0084FF] transition-colors">
+                      <Linkedin size={18} />
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>

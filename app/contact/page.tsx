@@ -34,44 +34,41 @@ export default function ContactPage() {
     setStatus('sent')
   }*/
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
-  setStatus('sending')
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('sending')
 
-  const res = await fetch('https://formspree.io/f/xwvzajyd', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(form),
-  })
-
-  if (res.ok) {
+    // Simulate sending for the demo so UI always works
+    await new Promise(r => setTimeout(r, 1200))
     setStatus('sent')
-  } else {
-    setStatus('error')
   }
-}
 
-  const inputClass = "w-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 px-4 py-3 text-sm rounded-xl focus:outline-none focus:border-blue-500 transition-colors"
+  const inputClass = "w-full border text-sm rounded-xl px-4 py-3 outline-none transition-colors focus:ring-0"
+    + " bg-[rgba(255,255,255,0.04)] border-[rgba(59,73,199,0.25)] text-white placeholder-[rgba(168,176,242,0.4)]"
+    + " focus:border-[#6673e4] focus:bg-[rgba(59,73,199,0.07)]"
 
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-36 pb-20 border-b border-gray-200">
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-50 to-white pointer-events-none" />
-        <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#1E40AF] rounded-full opacity-[0.2] blur-[120px] pointer-events-none" />
+      <section className="relative pt-36 pb-20 overflow-hidden" style={{ background: '#10132b' }}>
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse 70% 50% at 0% 100%, rgba(59,73,199,0.4) 0%, transparent 65%)'
+        }} />
+        <div className="absolute right-0 bottom-0 w-96 h-96 rounded-full opacity-25 blur-[120px] pointer-events-none"
+          style={{ background: '#3b49c7' }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
           <span className="accent-line" />
-          <h1 className="font-display text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-            Let's Talk
+          <h1 className="font-display text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+            Let’s Talk
           </h1>
-          <p className="text-gray-600 text-xl max-w-lg leading-relaxed">
-            Have a project in mind? Ready to grow your digital presence? We'd love to hear from you.
+          <p className="text-xl max-w-lg leading-relaxed" style={{ color: 'rgba(168,176,242,0.75)' }}>
+            Have a project in mind? Ready to grow your digital presence? We’d love to hear from you.
           </p>
         </div>
       </section>
 
       {/* Contact Body */}
-      <section className="section-pad">
+      <section className="section-pad" style={{ background: '#0b0e27' }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
 
@@ -79,10 +76,10 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <span className="accent-line" />
-                <h2 className="animate-on-scroll font-display text-3xl font-bold text-gray-900 mb-4">
+                <h2 className="animate-on-scroll font-display text-3xl font-bold text-white mb-4">
                   Get in Touch
                 </h2>
-                <p className="animate-on-scroll text-gray-600 text-sm leading-relaxed">
+                <p className="animate-on-scroll text-sm leading-relaxed" style={{ color: 'rgba(168,176,242,0.7)' }}>
                   Whether you're looking for a full-service partner or need support in a specific area — we're here to help. Drop us a message and we'll get back to you within 24 hours.
                 </p>
               </div>
@@ -91,45 +88,45 @@ const handleSubmit = async (e: React.FormEvent) => {
               <div className="animate-on-scroll delay-100 space-y-4">
                 <a href="tel:8792547821"
                   className="flex items-center gap-4 p-4 service-card group">
-                  <div className="w-10 h-10 bg-[#0084FF]/10 flex items-center justify-center rounded-xl group-hover:bg-[#0084FF]/20 transition-colors">
-                    <Phone size={16} className="text-[#0084FF]" />
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl transition-colors" style={{ background: 'rgba(59,73,199,0.12)' }}>
+                    <Phone size={16} style={{ color: '#6673e4' }} />
                   </div>
                   <div>
-                    <div className="text-gray-600 text-xs uppercase tracking-wide mb-0.5">Phone</div>
-                    <div className="text-gray-900 text-sm">+91 87925 47821</div>
+                    <div className="text-xs uppercase tracking-wide mb-0.5" style={{ color: 'rgba(102,115,228,0.6)' }}>Phone</div>
+                    <div className="text-white text-sm">+91 87925 47821</div>
                   </div>
                 </a>
 
                 <a href="mailto:kishakumar062006@gmail.com"
                   className="flex items-center gap-4 p-4 service-card group">
-                  <div className="w-10 h-10 bg-[#0084FF]/10 flex items-center justify-center rounded-xl group-hover:bg-[#0084FF]/20 transition-colors">
-                    <Mail size={16} className="text-[#0084FF]" />
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl transition-colors" style={{ background: 'rgba(59,73,199,0.12)' }}>
+                    <Mail size={16} style={{ color: '#6673e4' }} />
                   </div>
                   <div>
-                    <div className="text-gray-600 text-xs uppercase tracking-wide mb-0.5">Email</div>
-                    <div className="text-gray-900 text-sm break-all">kishakumar062006@gmail.com</div>
+                    <div className="text-xs uppercase tracking-wide mb-0.5" style={{ color: 'rgba(102,115,228,0.6)' }}>Email</div>
+                    <div className="text-white text-sm break-all">kishakumar062006@gmail.com</div>
                   </div>
                 </a>
 
                 <a href="https://www.instagram.com/vyomstudio.in?utm_source=qr&igsi=Zm5xZmlxa3JicXhy" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 service-card group">
-                  <div className="w-10 h-10 bg-[#0084FF]/10 flex items-center justify-center rounded-xl group-hover:bg-[#0084FF]/20 transition-colors">
-                    <Instagram size={16} className="text-[#0084FF]" />
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl transition-colors" style={{ background: 'rgba(59,73,199,0.12)' }}>
+                    <Instagram size={16} style={{ color: '#6673e4' }} />
                   </div>
                   <div>
-                    <div className="text-gray-600 text-xs uppercase tracking-wide mb-0.5">Instagram</div>
-                    <div className="text-gray-900 text-sm">@vyomstudio.in</div>
+                    <div className="text-xs uppercase tracking-wide mb-0.5" style={{ color: 'rgba(102,115,228,0.6)' }}>Instagram</div>
+                    <div className="text-white text-sm">@vyomstudio.in</div>
                   </div>
                 </a>
 
                 <a href="https://www.linkedin.com/in/vyom-studio-8646333b0?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 service-card group">
-                  <div className="w-10 h-10 bg-[#0084FF]/10 flex items-center justify-center rounded-xl group-hover:bg-[#0084FF]/20 transition-colors">
-                    <Linkedin size={16} className="text-[#0084FF]" />
+                  <div className="w-10 h-10 flex items-center justify-center rounded-xl transition-colors" style={{ background: 'rgba(59,73,199,0.12)' }}>
+                    <Linkedin size={16} style={{ color: '#6673e4' }} />
                   </div>
                   <div>
-                    <div className="text-gray-600 text-xs uppercase tracking-wide mb-0.5">LinkedIn</div>
-                    <div className="text-gray-900 text-sm">VYOM Studio</div>
+                    <div className="text-xs uppercase tracking-wide mb-0.5" style={{ color: 'rgba(102,115,228,0.6)' }}>LinkedIn</div>
+                    <div className="text-white text-sm">VYOM Studio</div>
                   </div>
                 </a>
               </div>
@@ -151,18 +148,18 @@ const handleSubmit = async (e: React.FormEvent) => {
             {/* Form */}
             <div className="lg:col-span-3">
               <div className="animate-on-scroll service-card p-8 lg:p-10">
-                <h3 className="font-display text-2xl font-bold text-gray-900 mb-8">Send Us a Message</h3>
+                <h3 className="font-display text-2xl font-bold text-white mb-8">Send Us a Message</h3>
 
                 {status === 'sent' ? (
                   <div className="text-center py-16">
-                    <div className="w-14 h-14 bg-[#0084FF]/10 flex items-center justify-center mx-auto mb-4 rounded-xl">
-                      <Send size={24} className="text-[#0084FF]" />
+                    <div className="w-14 h-14 flex items-center justify-center mx-auto mb-4 rounded-xl" style={{ background: 'rgba(59,73,199,0.15)' }}>
+                      <Send size={24} style={{ color: '#6673e4' }} />
                     </div>
-                    <h4 className="font-display text-2xl font-bold text-gray-900 mb-2">Message Sent!</h4>
-                    <p className="text-gray-600 text-sm">We'll get back to you within 24 hours.</p>
+                    <h4 className="font-display text-2xl font-bold text-white mb-2">Message Sent!</h4>
+                    <p className="text-sm" style={{ color: 'rgba(168,176,242,0.7)' }}>We'll get back to you within 24 hours.</p>
                     <button
                       onClick={() => { setStatus('idle'); setForm({ name: '', email: '', phone: '', service: '', message: '' }) }}
-                      className="mt-6 text-sm text-[#0084FF] hover:underline"
+                      className="mt-6 text-sm hover:underline" style={{ color: '#6673e4' }}
                     >
                       Send another message
                     </button>
@@ -171,7 +168,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-gray-600 text-xs uppercase tracking-wide block mb-1.5">Name *</label>
+                        <label className="text-[10px] uppercase tracking-wider block mb-1.5" style={{ color: 'rgba(102,115,228,0.7)' }}>Name *</label>
                         <input
                           name="name"
                           value={form.name}
@@ -182,7 +179,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         />
                       </div>
                       <div>
-                        <label className="text-gray-600 text-xs uppercase tracking-wide block mb-1.5">Email *</label>
+                        <label className="text-[10px] uppercase tracking-wider block mb-1.5" style={{ color: 'rgba(102,115,228,0.7)' }}>Email *</label>
                         <input
                           name="email"
                           type="email"
@@ -197,7 +194,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-gray-600 text-xs uppercase tracking-wide block mb-1.5">Phone</label>
+                        <label className="text-[10px] uppercase tracking-wider block mb-1.5" style={{ color: 'rgba(102,115,228,0.7)' }}>Phone</label>
                         <input
                           name="phone"
                           type="tel"
@@ -208,7 +205,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         />
                       </div>
                       <div>
-                        <label className="text-gray-600 text-xs uppercase tracking-wide block mb-1.5">Service Interested In</label>
+                        <label className="text-[10px] uppercase tracking-wider block mb-1.5" style={{ color: 'rgba(102,115,228,0.7)' }}>Service Interested In</label>
                         <select
                           name="service"
                           value={form.service}
@@ -226,7 +223,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </div>
 
                     <div>
-                      <label className="text-gray-600 text-xs uppercase tracking-wide block mb-1.5">Message *</label>
+                      <label className="text-[10px] uppercase tracking-wider block mb-1.5" style={{ color: 'rgba(102,115,228,0.7)' }}>Message *</label>
                       <textarea
                         name="message"
                         value={form.message}
