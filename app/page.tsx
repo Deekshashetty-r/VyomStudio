@@ -26,9 +26,9 @@ const marqueeItems = [
 ]
 
 const stats = [
-  { value: 100, suffix: '+', label: 'Projects Delivered' },
-  { value: 50,  suffix: '+', label: 'Brands Elevated' },
-  { value: 4,   suffix: 'yr', label: 'Years of Craft' },
+  { value: 15, suffix: '+', label: 'Projects Delivered' },
+  { value: 5,  suffix: '+', label: 'Brands Elevated' },
+  { value: 1,  suffix: 'yr', label: 'Years of Craft' },
   { value: 98,  suffix: '%', label: 'Client Satisfaction' },
 ]
 
